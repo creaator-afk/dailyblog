@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import material from "./material";
 
 interface MainFeaturedPostProps {
     post: {
@@ -23,7 +24,6 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             sx={{
                 position: 'relative',
                 backgroundColor: 'grey.800',
-                color: '#fff',
                 mb: 4,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -52,13 +52,13 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
                             pr: { md: 0 },
                         }}
                     >
-                        <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                        <Typography component="h1" variant="h3" color={material().light.onSecondary} gutterBottom>
                             {post.title}
                         </Typography>
-                        <Typography variant="h5" color="inherit" paragraph>
+                        <Typography variant="h5" color={material().light.onSecondary} paragraph>
                             {post.description}
                         </Typography>
-                        <Link variant="subtitle1" href="#">
+                        <Link variant="subtitle1" href="/blog/post1">
                             {post.linkText}
                         </Link>
                     </Box>
