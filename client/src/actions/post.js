@@ -5,7 +5,7 @@ import {setAlert} from "./alert";
 
 export const getBlog = () => async (dispatch) => {
     try {
-        const response = await axios.get("https://fakestoreapi.com/products");
+        const response = await axios.get("https://vecros-dailyblog-backend.vercel.app/api/blog");
         dispatch({
             type: POSTS_LOADED,
             payload: response.data,
