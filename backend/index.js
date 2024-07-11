@@ -7,16 +7,16 @@ const bodyParser = require("body-parser");
 const routes = require("./routes/index");
 
 const CONFIG = require("./config");
-const app = express();
+const index = express();
 mongoose.connect(CONFIG.DB_URL);
 
-app.use(bodyParser.json({ limit: "10mb" }));
-app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
-app.use(helmet());
-app.use(cors({ origin: CONFIG.ORIGIN }));
-app.use("/api", routes);
+index.use(bodyParser.json({ limit: "10mb" }));
+index.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
+index.use(helmet());
+index.use(cors({ origin: CONFIG.ORIGIN }));
+index.use("/api", routes);
 
-app.listen(CONFIG.PORT, () => {
+index.listen(CONFIG.PORT, () => {
 	console.log(`Express Server running on port ${CONFIG.PORT}`);
 });
 
