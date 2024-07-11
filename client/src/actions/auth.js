@@ -1,6 +1,15 @@
 import setAuthToken from "../utils/setAuthToken";
 import axios from "axios";
-import {AUTH_ERR0R, LOGIN_FAIL, LOGIN_SUCCESS, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED} from "./types";
+import {
+    AUTH_ERR0R,
+    CLEAR_PROFILE,
+    LOGIN_FAIL,
+    LOGIN_SUCCESS,
+    LOGOUT,
+    REGISTER_FAIL,
+    REGISTER_SUCCESS,
+    USER_LOADED
+} from "./types";
 import {setAlert} from "./alert";
 
 export const loadUser = () => async (dispatch) => {
@@ -17,18 +26,19 @@ export const loadUser = () => async (dispatch) => {
         })
     }catch(err) {
         dispatch({
-            type: AUTH_ERR0R
+            type: AUTH_ERR0R,
+            payload: err.message
         })
     }
 }
 
-export const register = (email, password) => async (dispatch) => {
+export const register = (username, password) => async (dispatch) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
         },
     };
-    const body = JSON.stringify({ email, password });
+    const body = JSON.stringify({username,password});
     try {
         const res = await axios.post('/api/signUp', body, config);
 
@@ -46,13 +56,13 @@ export const register = (email, password) => async (dispatch) => {
     }
 }
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
         },
     }
-    const body = JSON.stringify({ email, password });
+    const body = JSON.stringify({ username, password });
     try {
         const res = await axios.post('/api/signin', body, config);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
@@ -64,4 +74,9 @@ export const login = (email, password) => async (dispatch) => {
         }
         dispatch({type: LOGIN_FAIL, });
     }
+}
+
+export const logout = () => (dispatch) => {
+    dispatch({type:LOGOUT});
+    dispatch({type: CLEAR_PROFILE});
 }
