@@ -86,7 +86,7 @@ const SignIn = ({login, isAuthenticated, darkTheme}) => {
                             id="email"
                             label="Email Address"
                             name="email"
-                            autoComplete="email"
+                            autoComplete="title"
                             autoFocus
                             value={email}
                             onChange={(e) => onChange(e)}
@@ -108,7 +108,6 @@ const SignIn = ({login, isAuthenticated, darkTheme}) => {
                             control={<Checkbox value="remember" sx={{  color: getLight().onSurface }}/>}
                             label="Remember me"
                             sx={{  color: getLight().onSurface }}
-
                         />
                         <Button
                             type="submit"
@@ -125,7 +124,6 @@ const SignIn = ({login, isAuthenticated, darkTheme}) => {
                                         Forgot password?
                                     </Link>
                                 </ReduxLink>
-
                             </Grid>
                             <Grid item>
                                 <ReduxLink to="/signup"><Link  variant="body2">

@@ -14,8 +14,9 @@ import Post3 from "./component/blog/posts/Post3";
 import Header from "./component/header/Header";
 import {loadUser} from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
-import Main from "./component/blog/Main";
 import {getBlog} from "./actions/post";
+import Profile from "./component/profile/Profile";
+
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -32,14 +33,15 @@ const App = () => {
                 <Header title="Daily Blog"/>
                 <Fragment>
                     <Routes>
-                        <Route path="/signin" Component={SignIn}/>
-                        <Route path="/signup" Component={SignUp}/>
-                        <Route path="/" Component={Blog}/>
-                        <Route path="/blog/post1" Component={Post1}/>
-                        <Route path="/blog/post2" Component={Post2}/>
-                        <Route path="/blog/post3" Component={Post3}/>
-                        <Route path="/blog/post" Component={Post}/>
-                        <Route path="/dashboard" Component={Dashboard}/>
+                        <Route path="/signin"       Component={SignIn}/>
+                        <Route path="/signup"       Component={SignUp}/>
+                        <Route path="/"             Component={Blog}/>
+                        <Route path="/blog/post1"   Component={Post1}/>
+                        <Route path="/blog/post2"   Component={Post2}/>
+                        <Route path="/blog/post3"   Component={Post3}/>
+                        <Route path="/blog/post"    Component={Post}/>
+                        <Route path="/dashboard"    Component={Dashboard}/>
+                        <Route path="/profile"    Component={Profile}/>
                     </Routes>
                 </Fragment>
             </BrowserRouter>

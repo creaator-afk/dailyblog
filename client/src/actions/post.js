@@ -1,11 +1,10 @@
 import axios from "axios";
-import {POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED} from "./types";
+import {POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED, BACKEND_URL} from "./types";
 import {setAlert} from "./alert";
-
 
 export const getBlog = () => async (dispatch) => {
     try {
-        const response = await axios.get("api/blog/");
+        const response = await axios.get(`${BACKEND_URL}/api/blog`);
         dispatch({
             type: POSTS_LOADED,
             payload: response.data,
@@ -21,7 +20,7 @@ export const getBlog = () => async (dispatch) => {
 export const getBlogById = (id) => async (dispatch, getState) => {
 
     try{
-        const response = await axios.get(`/api/blog/${id}`);
+        const response = await axios.get(`${BACKEND_URL}/api/blog/${id}`);
         dispatch({
             type: POST_LOADED,
             payload: response.data,
@@ -47,7 +46,7 @@ export const postBlog = (value) => async (dispatch) => {
 
     const body = JSON.stringify({title,description,image});
     try{
-        const res = await axios.post('/api/blog', body, config);
+        const res = await axios.post(`${BACKEND_URL}/api/blog`, body, config);
         dispatch({ type: POST_SUCCESS, payload: res.data });
     }catch (err) {
         const errors = err.response.data.errors;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './GradientLoadingScreen.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -14,8 +15,8 @@ import MaterialTheme from '../../material-theme.json'
 import Scrolling from "./Scrolling";
 import {connect} from "react-redux";
 import {getBlog} from "../../actions/post";
-import {useEffect} from "react";
 import PropTypes from "prop-types";
+import {makeStyles, useMediaQuery} from "@mui/material";
 
 const sidebar = {
     title: 'About',
@@ -44,39 +45,54 @@ const sidebar = {
 interface BlogProps {
     posts: any ;
     darkTheme: boolean;
+    loading: boolean;
     getBlog: void;
 };
 
 const Blog = (props: BlogProps) => {
     const defaultTheme = createTheme(MaterialTheme);
-    const {posts} = props;
-
-    return (
+    const {posts,loading} = props;
+    const isMobile = useMediaQuery(defaultTheme.breakpoints.down('sm'));
+    const GradientLoadingScreen = () => {
+        return (
+            <div className="gradientLoader">
+            </div>
+        );
+    };
+    return (loading ?
+        <ThemeProvider theme={defaultTheme}>
+            <CssBaseline/>
+            <Container maxWidth="lg">
+            <GradientLoadingScreen/>:
+            </Container>
+        </ThemeProvider>
+            :
         <ThemeProvider theme={defaultTheme}>
             <CssBaseline/>
             <Container maxWidth="lg">
                 <main>
                     <MainFeaturedPost post={posts.at(0)}/>
-                    <Grid container spacing={4}>
+                    <Grid container spacing={isMobile ? 2 : 4}>
                         {(posts.slice(1,3)).map((post) => (
                             <FeaturedPost key={post.title} post={post}/>
                         ))}
                     </Grid>
                     <Grid container spacing={5} sx={{mt: 3}}>
-                        <Scrolling posts={posts.slice(3,6)}/>
-                        <Sidebar
+                        <Scrolling posts={posts.slice(3,8)}/>
+                        {!isMobile && <Sidebar
                             title={sidebar.title}
                             description={sidebar.description}
                             archives={sidebar.archives}
                             social={sidebar.social}
-                        />
+                        />}
                     </Grid>
                 </main>
             </Container>
             <Footer
                 title="Footer"
-                description="Something here to give the footer a purpose!"
+                description="Join our Newsletter"
             />
+
         </ThemeProvider>
     );
 }
@@ -84,11 +100,13 @@ Blog.propTypes = {
     darkTheme: PropTypes.object.isRequired,
     posts: PropTypes.array.isRequired,
     getBlog: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
 }
 const mapStateToProps = (state) => ({
     getBlog: state.post.getBlog,
     darkTheme: state.theme.darkTheme,
     posts: state.post.posts,
+    loading: state.post.loading
 })
 
 export default connect(mapStateToProps, {getBlog})(Blog);

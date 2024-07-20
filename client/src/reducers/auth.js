@@ -1,7 +1,7 @@
 import {
     REGISTER_SUCCESS,
     LOGIN_SUCCESS,
-    REGISTER_FAIL, LOGIN_FAIL, LOGOUT, USER_LOADED
+    REGISTER_FAIL, LOGIN_FAIL, LOGOUT, USER_LOADED, PROFILE_CREATED
 } from "../actions/types";
 
 const initialState = {
@@ -16,6 +16,7 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case REGISTER_SUCCESS:
+        case PROFILE_CREATED:
         case LOGIN_SUCCESS:
         case USER_LOADED:
             localStorage.setItem('token', payload.accessToken);

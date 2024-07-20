@@ -36,12 +36,14 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Dashboard"/>
         </ListItemButton>
-        <ListItemButton>
-            <ListItemIcon>
-                <AccountCircleRounded/>
-            </ListItemIcon>
-            <ListItemText primary="Profile"/>
-        </ListItemButton>
+        <Link to="/profile">
+            <ListItemButton>
+                <ListItemIcon>
+                    <AccountCircleRounded/>
+                </ListItemIcon>
+                <ListItemText primary="Profile"/>
+            </ListItemButton>
+        </Link>
         <ListItemButton>
             <ListItemIcon>
                 <PeopleIcon/>

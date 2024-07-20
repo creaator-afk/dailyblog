@@ -1,0 +1,16 @@
+/* GradientLoadingScreen.css */
+.gradientLoader {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #c6c6c6, #878787, #c6c6c6, #878787, #c6c6c6, #878787);
+    background-size: 200% 200%;
+    animation: gradientShift 4s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0 50%; }
+    100% { background-position: 100% 50%; }
+}

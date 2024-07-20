@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+      }
+    </style>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .flex-item {
+        flex: 1 1 200px; /* Grow to fill available space, but not smaller than 200px */
+        margin: 10px;
+        text-align: center;
+      }
+
+      /* Adjustments for smaller screens */
+      @media (max-width: 600px) {
+        .flex-item {
+          flex: 1 1 100%; /* Each item takes full width on small screens */
+        }
+      }
+    </style>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta title="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta title="theme-color" content="#000000" />
     <meta
       title="description"

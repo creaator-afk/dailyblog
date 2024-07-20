@@ -7,10 +7,11 @@ import Box from '@mui/material/Box';
 import material from "../../material";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {setTheme} from "../../actions/theme";
 import {useEffect} from "react";
-import {getBlogById} from "../../actions/post";
-import Button from "@mui/material/Button";
+import {useMediaQuery} from "@mui/material";
+import Material from "../../material";
+import {createTheme} from "@mui/material/styles";
+import Markdown from "./Markdown";
 
 interface MainFeaturedPostProps {
     post: {
@@ -20,12 +21,14 @@ interface MainFeaturedPostProps {
         linkText: "click to read more . . . . ";
         title: string;
     };
-    darkTheme:boolean;
+    darkTheme: boolean;
 }
 
 
 const MainFeaturedPost = (props: MainFeaturedPostProps) => {
-    const { post , darkTheme} = props;
+    const {post, darkTheme} = props;
+    const defaultTheme = createTheme(Material);
+    const isMobile = useMediaQuery(defaultTheme.breakpoints.down('sm'));
 
     useEffect(() => {
 
@@ -34,6 +37,7 @@ const MainFeaturedPost = (props: MainFeaturedPostProps) => {
     function getLight() {
         return darkTheme ? material().dark : material().light;
     }
+
     return (
         <Paper
             sx={{
@@ -47,7 +51,7 @@ const MainFeaturedPost = (props: MainFeaturedPostProps) => {
             }}
         >
             {/* Increase the priority of the hero background image */}
-            {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+            {<img style={{display: 'none'}} src={post.image} alt={post.imageText}/>}
             <Box
                 sx={{
                     position: 'absolute',
@@ -55,7 +59,7 @@ const MainFeaturedPost = (props: MainFeaturedPostProps) => {
                     bottom: 0,
                     right: 0,
                     left: 0,
-                    backgroundColor: 'rgba(0,0,0,.3)',
+                    backgroundColor: 'rgb(58,58,58,0.3)',
                 }}
             />
             <Grid container>
@@ -63,17 +67,19 @@ const MainFeaturedPost = (props: MainFeaturedPostProps) => {
                     <Box
                         sx={{
                             position: 'relative',
-                            p: { xs: 3, md: 6 },
-                            pr: { md: 0 },
+                            p: {xs: 3, md: 6},
+                            pr: {md: 0},
                         }}
                     >
                         <Typography component="h1" variant="h3" color={getLight().onSecondary} gutterBottom>
                             {post.title}
                         </Typography>
                         <Typography variant="h5" color={getLight().onSecondary} paragraph>
-                            {post.description.toString().substring(3, 50)}...
+                            <Markdown>
+                                {post.description.toString().substring(0, 50) + " . . . . "}
+                            </Markdown>
                         </Typography>
-                        <RouterLink variant="subtitle1" to="/blog/post1" >
+                        <RouterLink variant="subtitle1" to="/blog/post1">
                             Continue reading . . . .
                         </RouterLink>
                     </Box>
@@ -94,4 +100,4 @@ const mapStateToProps = (state) => ({
     getBlogById: state.post.getBlogById
 })
 
-export default connect(mapStateToProps, getBlogById)(MainFeaturedPost)
+export default connect(mapStateToProps)(MainFeaturedPost)

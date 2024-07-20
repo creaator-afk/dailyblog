@@ -57,8 +57,7 @@ const SignUp = ({setAlert, register, isAuthenticated, darkTheme}) => {
     };
 
     useEffect(() => {
-
-    }, [darkTheme]);
+    }, [darkTheme, isAuthenticated]);
 
     function getLight() {
         return darkTheme?material().dark:material().light;
@@ -91,7 +90,7 @@ const SignUp = ({setAlert, register, isAuthenticated, darkTheme}) => {
                             id="email"
                             label="Email Address"
                             name="email"
-                            autoComplete="email"
+                            autoComplete="title"
                             value={email}
                             onChange={(e) => onChange(e)}
                             autoFocus

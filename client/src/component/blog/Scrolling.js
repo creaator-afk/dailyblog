@@ -40,12 +40,6 @@ const Scrolling = ({darkTheme, posts}) => {
                                 <Typography variant="subtitle1" color={getLight().onTertiary}>
                                     {post.category}
                                 </Typography>
-                                <Typography variant="subtitle1" paragraph color={getLight().onTertiary}>
-                                    <Markdown>
-
-                                    {post.description.toString().slice(0, 100)+" . . . ."}
-                                    </Markdown>
-                                </Typography>
                                 <Typography variant="subtitle1" color="primary">
                                     Continue reading...
                                 </Typography></div>

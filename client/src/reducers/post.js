@@ -1,8 +1,16 @@
 import {POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED} from "../actions/types";
 
 const initialState = {
-    post: {title:"blog",description:"description",image:"image"},
-    posts: [{title:"posts blog",description:" posts description",image:" posts image"}],
+    post: {title:"Blogs",description:"Loading....",image:"image"},
+    posts: [
+        {title:"Blogs",description:"Loading...",image:" posts image",category:"tech"},
+        {title:"Blogs",description:"Loading...",image:" posts image",category:"beauty"},
+        {title:"Blogs",description:"Loading...",image:" posts image",category:"fashion"},
+        {title:"Blogs",description:"Loading...",image:" posts image",category:"business"},
+        {title:"Blogs",description:"Loading...",image:" posts image",category:"electronics"},
+        {title:"Blogs",description:"Loading...",image:" posts image",category:"furniture"},
+
+    ],
     loading: true,
     description: null
 }
