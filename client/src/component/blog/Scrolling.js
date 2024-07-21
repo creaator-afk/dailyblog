@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {setTheme} from "../../actions/theme";
 import Markdown from "./Markdown";
+import {Link as RouterLink} from "react-router-dom";
 
 const Scrolling = ({darkTheme, posts}) => {
 
@@ -31,21 +32,25 @@ const Scrolling = ({darkTheme, posts}) => {
               }}
         >
             {posts.map((post) => (
-                <CardActionArea key={post._id} component="a" href="/blog/post3">
-                    <Card sx={{display: "flex", marginBottom: "12px"}}>
-                        <CardContent sx={{flex: 1, display: "flex", background: `${getLight().tertiary}`}}>
-                            <div><Typography component="h2" variant="h5" color={getLight().onTertiary}>
-                                {post.title}
-                            </Typography>
-                                <Typography variant="subtitle1" color={getLight().onTertiary}>
-                                    {post.category}
+                <RouterLink to="/blog/post1" state={{id: post._id}}
+                            style={{textDecoration: 'none', color: 'inherit'}}>
+                    <CardActionArea key={post._id} component="a" href="/blog/post3">
+                        <Card sx={{display: "flex", marginBottom: "12px"}}>
+                            <CardContent sx={{flex: 1, display: "flex", background: `${getLight().tertiary}`}}>
+                                <div><Typography component="h2" variant="h5" color={getLight().onTertiary}>
+                                    {post.title}
                                 </Typography>
-                                <Typography variant="subtitle1" color="primary">
-                                    Continue reading...
-                                </Typography></div>
-                        </CardContent>
-                    </Card>
-                </CardActionArea>
+                                    <Typography variant="subtitle1" color={getLight().onTertiary}>
+                                        {post.category}
+                                    </Typography>
+                                    <Typography variant="subtitle1" color="primary">
+                                        Continue reading...
+                                    </Typography>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </CardActionArea>
+                </RouterLink>
             ))}
         </Grid>
     )

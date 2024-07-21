@@ -92,7 +92,6 @@ const Blog = (props: BlogProps) => {
                 title="Footer"
                 description="Join our Newsletter"
             />
-
         </ThemeProvider>
     );
 }

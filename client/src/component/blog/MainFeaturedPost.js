@@ -29,7 +29,6 @@ const MainFeaturedPost = (props: MainFeaturedPostProps) => {
     const {post, darkTheme} = props;
     const defaultTheme = createTheme(Material);
     const isMobile = useMediaQuery(defaultTheme.breakpoints.down('sm'));
-
     useEffect(() => {
 
     }, [darkTheme]);
@@ -79,7 +78,7 @@ const MainFeaturedPost = (props: MainFeaturedPostProps) => {
                                 {post.description.toString().substring(0, 50) + " . . . . "}
                             </Markdown>
                         </Typography>
-                        <RouterLink variant="subtitle1" to="/blog/post1">
+                        <RouterLink to="/blog/post1" state={{id: post._id}} style={{textDecoration: 'none', color: 'inherit'}}>
                             Continue reading . . . .
                         </RouterLink>
                     </Box>

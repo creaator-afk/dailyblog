@@ -1,7 +1,7 @@
 import {POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED} from "../actions/types";
 
 const initialState = {
-    post: {title:"Blogs",description:"Loading....",image:"image"},
+    post: {title:"Blogs",description:"Loading....",image:"image",_id:""},
     posts: [
         {title:"Blogs",description:"Loading...",image:" posts image",category:"tech"},
         {title:"Blogs",description:"Loading...",image:" posts image",category:"beauty"},

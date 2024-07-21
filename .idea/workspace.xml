@@ -5,12 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea8bb7c3-0130-461e-815f-272e5aa19534" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TechBlog.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Blog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Chart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Deposits.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/FeaturedPost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/MainFeaturedPost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Markdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Orders.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Posts/Post1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Posts/Post2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Posts/Post3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Sidebar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/SignIn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/SignUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Title.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/blog-post.1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/blog-post.2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/blog-post.3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/blog/Blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/FeaturedPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/blog/FeaturedPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/blog/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/MainFeaturedPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/blog/MainFeaturedPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/Scrolling.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/blog/Scrolling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/posts/Post1.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/blog/posts/Post1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/posts/Post2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/blog/posts/Post3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/listItems.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reducers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/post.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,22 +49,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "creaator-afk"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;creaator-afk&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/creaator-afk/vecros_dailyblog",
-    "accountId": "6b99e1a5-0907-4ba6-b3fd-c140d0f27e00"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/creaator-afk/vecros_dailyblog&quot;,
+    &quot;accountId&quot;: &quot;6b99e1a5-0907-4ba6-b3fd-c140d0f27e00&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2jXNXRVGwgMV6rYkA3tpwEo36j6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,17 +72,61 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "client-development",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "feature-implementation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "npm.start.executor": "Debug",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs>
+        <env name="ACCESS_TOKEN_SECRET" value="LOCAL_SECRET_XXXX" />
+        <env name="CORS_ORIGIN" value="http://localhost:3000" />
+        <env name="DB_NAME" value="test" />
+        <env name="ENV" value="local" />
+        <env name="MONGO_URI" value="mongodb://localhost:27017/$DB_NAME" />
+        <env name="PORT" value="8000" />
+        <env name="REFRESH_TOKEN_SECRET" value="LOCAL_SECRET_YYYY" />
+      </envs>
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs>
+        <env name="REACT_APP_BACKEND_URL" value="http://localhost:8000" />
+      </envs>
+      <EXTENSION ID="com.intellij.lang.javascript.buildTools.npm.rc.StartBrowserRunConfigurationExtension">
+        <browser name="37cae5b9-e8b2-4949-9172-aafa37fbc09c" with-js-debugger="true" url="http://localhost:3000/" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.dev" />
+      <item itemvalue="npm.start" />
+    </list>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,6 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721529502119</updated>
       <workItem from="1721529504263" duration="635000" />
+      <workItem from="1721547783118" duration="13082000" />
     </task>
     <servers />
   </component>

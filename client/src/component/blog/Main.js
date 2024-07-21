@@ -15,10 +15,10 @@ import Box from "@mui/material/Box";
 import {Link as RouterLink} from "react-router-dom";
 
 function Main(props) {
-    const {post,getBlogById, darkTheme} = props;
+    const {post,getBlogById, darkTheme, id} = props;
 
     useEffect(() => {
-        getBlogById("668abfbbe5dbcf6f400ccd5c");
+        getBlogById(id);
     }, []);
 
     function getDark() {
