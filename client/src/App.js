@@ -12,7 +12,6 @@ import Dashboard from "./component/dashboard/Dashboard";
 import Header from "./component/header/Header";
 import {loadUser} from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
-import {getBlog} from "./actions/post";
 import Profile from "./component/profile/Profile";
 
 
@@ -23,7 +22,6 @@ if (localStorage.token) {
 const App = () => {
     useEffect(() => {
         store.dispatch(loadUser());
-        store.dispatch(getBlog());
     }, []);
     return (
         <BrowserRouter>

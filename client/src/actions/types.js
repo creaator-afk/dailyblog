@@ -22,6 +22,8 @@ export const POST_SUCCESS = 'POST_SUCCESS';
 export const POST_FAILED = 'POST_FAILED';
 export const POST_LOADED = 'POST_LOADED';
 export const POSTS_LOADED = 'POSTS_LOADED'
+export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+export const CATEGORY_FAILED = 'CATEGORY_FAILED';
 
 export const SET_THEME = 'SET_THEME';
 

@@ -1,4 +1,4 @@
-import {POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED} from "../actions/types";
+import {CATEGORY_FAILED, CATEGORY_LOADED, POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED} from "../actions/types";
 
 const initialState = {
     post: {title:"Blogs",description:"Loading....",image:"image",_id:""},
@@ -20,6 +20,7 @@ export default function (state = initialState, action)  {
 
     switch (type) {
         case POSTS_LOADED:
+        case CATEGORY_LOADED:
             return {
                 ...state,
                 posts:payload,
@@ -39,6 +40,7 @@ export default function (state = initialState, action)  {
                 loading: false,
             }
         case POST_FAILED:
+        case CATEGORY_FAILED:
             return {
                 ...state,
                 loading: false,

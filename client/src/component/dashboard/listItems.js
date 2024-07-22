@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom'
 
 export const mainListItems = (
     <React.Fragment>
-        <Link to="/">
+        <Link to="/" state={{category: "All"}}>
             <ListItemButton>
                 <ListItemIcon>
                     <HouseRounded/>

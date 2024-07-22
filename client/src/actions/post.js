@@ -1,5 +1,13 @@
 import axios from "axios";
-import {POST_FAILED, POST_LOADED, POST_SUCCESS, POSTS_LOADED, BACKEND_URL} from "./types";
+import {
+    POST_FAILED,
+    POST_LOADED,
+    POST_SUCCESS,
+    POSTS_LOADED,
+    BACKEND_URL,
+    CATEGORY_LOADED,
+    CATEGORY_FAILED
+} from "./types";
 import {setAlert} from "./alert";
 
 export const getBlog = () => async (dispatch) => {
@@ -31,6 +39,44 @@ export const getBlogById = (id) => async (dispatch, getState) => {
             payload: {msg: error.response.statusText, status: error.response.status}
         })
     }
+}
+
+export const getBlogByCategory = (category,title) => async (dispatch) => {
+    if (category === "All") {
+        dispatch(getBlog());
+        return;
+    }
+    if(title && title!==""){
+        dispatch(getBlogByTitle(title));
+        return;
+    }
+    try {
+        const response = await axios.get(`${BACKEND_URL}/api/blog/category/${category}`);
+        dispatch({
+            type: CATEGORY_LOADED,
+            payload: response.data,
+        })
+    }catch (error) {
+        dispatch({
+            type: CATEGORY_FAILED,
+            payload: {msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
+export const getBlogByTitle = (title) => async (dispatch) => {
+    try {
+        const response = await axios.get(`${BACKEND_URL}/api/blog/title/${title}`);
+        dispatch({
+            type: POSTS_LOADED,
+            payload: response.data,
+        })
+    }catch (error) {
+        dispatch({
+            type: POST_FAILED,
+            payload: {msg: error.response.statusText, status: error.response.status}
+        })
+    }
+
 }
 
 export const postBlog = (value) => async (dispatch) => {

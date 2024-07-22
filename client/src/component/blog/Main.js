@@ -80,7 +80,6 @@ function Main(props) {
 }
 
 Main.propTypes = {
-    // post: PropTypes.arrayOf(PropTypes.string).isRequired,
     post: PropTypes.object.isRequired,
     getBlogById: PropTypes.func.isRequired,
     darkTheme: PropTypes.bool.isRequired,

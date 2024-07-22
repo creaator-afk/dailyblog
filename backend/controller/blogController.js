@@ -20,6 +20,24 @@ BlogController.getBlogById = async (req, res) => {
 		return;
 	}
 };
+BlogController.getBlogByCategory = async (req, res) => {
+	try {
+		const post = await Repository.getBlogByCategory(req.params.category);
+		res.status(200).send(post);
+	} catch (error) {
+		res.status(400).send(error.message);
+		return;
+	}
+}
+BlogController.getBlogByTitle = async (req, res) => {
+	try {
+		const post = await Repository.getBlogByTitle(req.params.title);
+		res.status(200).send(post);
+	} catch (error) {
+		res.status(400).send(error.message);
+		return;
+	}
+}
 
 BlogController.getAllBlog = async (req, res) => {
 	try {

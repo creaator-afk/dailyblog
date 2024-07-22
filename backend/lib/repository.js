@@ -106,6 +106,13 @@ Repository.createBlog = async (data, userRef) => {
 Repository.getBlogById = async (id) => {
 	return await Blog.findById(id, { __v: 0, createdBy: 0 });
 };
+Repository.getBlogByCategory = async (category) => {
+	return await Blog.find({category: category}, { __v: 0, createdBy: 0 });
+};
+Repository.getBlogByTitle = async (title) => {
+	return await Blog.find({title : {$regex : `.*${title}.*`}}, { __v: 0, createdBy: 0 });
+}
+
 
 Repository.getAllBlog = async (userRef) => {
 	// TODO: paginate this

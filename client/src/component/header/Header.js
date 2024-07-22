@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import {Backdrop, Drawer, InputBase, ListItem, useMediaQuery} from "@mui/material";
+import {Backdrop, Drawer, InputBase, ListItem, Menu, MenuItem, useMediaQuery} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
@@ -14,7 +14,7 @@ import AccountCircleRounded from "@mui/icons-material/AccountCircleRounded";
 import {Helmet} from "react-helmet";
 import material from "../../material";
 import CssBaseline from "@mui/material/CssBaseline";
-import {createTheme, ThemeProvider, useTheme} from "@mui/material/styles";
+import {ThemeProvider, useTheme} from "@mui/material/styles";
 import Container from "@mui/material/Container";
 import {getTheme} from "./themeSwitcher";
 import PropTypes from "prop-types";
@@ -25,7 +25,7 @@ import {useEffect, useState} from "react";
 import {setTheme} from "../../actions/theme";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
-
+import {getBlogByCategory} from "../../actions/post";
 
 interface HeaderProps {
     sections: ReadonlyArray<{
@@ -38,26 +38,13 @@ interface HeaderProps {
     setTheme: void;
     loadUser: void;
     posts: null;
+    getBlogByCategory: void
 }
 
 const Header = (props: HeaderProps) => {
     // const {categories, title} = props;
     // local settings start--
-    const {title, isAuthenticated, darkTheme, setTheme, logout,} = props;
-
-    const posts = [
-        {category: 'Technology', url: '#'},
-        {category: 'Design', url: '#'},
-        {category: 'Culture', url: '#'},
-        {category: 'Business', url: '#'},
-        {category: 'Politics', url: '#'},
-        {category: 'Opinion', url: '#'},
-        {category: 'Science', url: '#'},
-        {category: 'Health', url: '#'},
-        {category: 'Style', url: '#'},
-        {category: 'Travel', url: '#'},
-        {category: 'Mera Category', url: '#'},
-    ]
+    const {title, isAuthenticated, darkTheme, setTheme, logout, posts, getBlogByCategory} = props;
 
     useEffect(() => {
     }, [darkTheme]);
@@ -65,13 +52,18 @@ const Header = (props: HeaderProps) => {
     useEffect(() => {
         loadUser();
     }, [isAuthenticated]);
-    //local setitings end --
+
     const [open, setOpen] = React.useState(false);
 
     const switchTheme = () => {
         setTheme();
     }
     const handleClose = () => {
+        if (search) {
+            console.log(search);
+        } else if (category) {
+            getBlogByCategory(category);
+        }
         setOpen(false);
     }
     const handleOpen = () => {
@@ -101,7 +93,8 @@ const Header = (props: HeaderProps) => {
         logout();
     }
 
-
+    const [category, setCategory] = useState("");
+    const [search, setSearch] = useState("");
     return (
         <React.Fragment>
             <ThemeProvider theme={defaultTheme}>
@@ -191,20 +184,28 @@ const Header = (props: HeaderProps) => {
                                         <MenuIcon/>
                                     </IconButton>
                                     <InputBase
-                                        sx={{ml: 1, flex: 2}}
-                                        placeholder="Search Blogpost"
-                                        inputProps={{'aria-label': 'search blogpost'}}
+                                        sx={{ml: 1, flex: 1}}
+                                        placeholder="Search.."
+                                        inputProps={{'aria-label': 'search dailyBlog'}}
+                                        onChange={(e) => setSearch(e.target.value)}
+                                        value={search}
                                     />
                                     <Divider sx={{height: 28, m: 0.5}} orientation="vertical"/>
                                     <InputBase
                                         sx={{ml: 1, flex: 1}}
                                         placeholder="Category"
-                                        inputProps={{'aria-label': 'search google maps'}}
+                                        inputProps={{'aria-label': 'search category'}}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        value={category}
                                     />
-                                    <IconButton onClick={handleClose} type="button" sx={{p: '10px'}}
-                                                aria-label="search">
-                                        <SearchIcon/>
-                                    </IconButton>
+                                    <ReduxLink to="/" state={{category: category, search: search}}
+                                               style={{textDecoration: 'none', color: 'inherit'}}>
+                                        <IconButton onClick={handleClose} type="button" sx={{p: '10px'}}
+                                                    aria-label="search">
+                                            <SearchIcon/>
+                                        </IconButton>
+                                    </ReduxLink>
+
                                 </Paper>
 
                             </Backdrop>
@@ -255,14 +256,26 @@ const Header = (props: HeaderProps) => {
                                 href={section}
                                 sx={{p: 1, flexShrink: 0}}
                             >
-                                <Typography
-                                    color={getTheme(darkTheme).onBackground}
-                                    variant="body2"
-                                >
-                                    {section}
-                                </Typography>
+                                <ReduxLink to="/" state={{category: section}}
+                                           style={{textDecoration: 'none', color: 'inherit'}}>
+                                    <Typography
+                                        color={getTheme(darkTheme).onBackground}
+                                        variant="body2"
+                                    >
+                                        {section}
+                                    </Typography>
+                                </ReduxLink>
                             </Link>
                         ))}
+                        <ReduxLink to="/" state={{category: "All"}}
+                                   style={{textDecoration: 'none', color: 'inherit'}}>
+                            <Typography
+                                color={getTheme(darkTheme).onBackground}
+                                variant="body2"
+                            >
+                                All
+                            </Typography>
+                        </ReduxLink>
                     </Toolbar>}
                 </Container>
             </ThemeProvider>
@@ -281,9 +294,9 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
-    darkTheme: state.theme.darkTheme
+    darkTheme: state.theme.darkTheme,
+    posts: state.post.posts,
 })
 
-
-export default connect(mapStateToProps, {logout, setTheme, loadUser})(Header)
+export default connect(mapStateToProps, {logout, setTheme, loadUser, getBlogByCategory})(Header)
 // export default  Header;
